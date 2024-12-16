@@ -75,8 +75,3 @@ Our approach involves a systematic progression through three stages: segmentatio
 | InceptionResNet50   | 0.193        | 94.81%          | 0.197         | 93.87%           |
 | ViT                 | 0.165        | 95.78%          | 0.178         | 95.27%           |
 
-
-### Grad-CAM Visualizations
-<p align="center">
-  <img src="Images/GradCam.jpg" alt="Superimposed Grad-CAM Image">
-</p>
