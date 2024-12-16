@@ -32,52 +32,49 @@ Accurate and rapid diagnosis of respiratory diseases such as COVID-19 and viral 
 Our approach involves a systematic progression through three stages: segmentation, classification, and localization. This structured workflow allows us to precisely isolate and analyze lung regions, identify pathological conditions, and visually highlight critical areas influencing diagnostic outcomes, thereby facilitating a comprehensive examination of CXR images.
 
 <p align="center">
-  <img src="Images/arch.drawio.png" alt="Architecture Image">
+  <img src="Images/arch.jpg" alt="Architecture Image">
 </p>
 
 ## RESULTS
 
 ### Segmentation Models Experiment Results
 
-### UNet
-| Backbone         | binary_accuracy | dice_coef | iou_score |
-|------------------|-----------------|-----------|-----------|
-| Mobilenetv2      | 0.7585          | 0.5252    | 0.7511    |
-| seresnext50      | 0.9886          | 0.9757    | 0.9941    |
-| **inceptionresnetv2** | 0.9906   | 0.9794    | 0.995     |
-| efficientnetb2   | 0.9894          | 0.9769    | 0.9945    |
-| vgg16            | 0.9282          | 0.7714    | 0.9403    |
+# Segmentation Models Performance Table
 
-#### LinkNet
+| **Base Model** | **Backbone**      | **Binary Accuracy** | **Dice Coefficient** | **IoU Score** |
+|----------------|-------------------|----------------------|-----------------------|---------------|
+| **U-Net**      | ResNet50          | 0.9844              | 0.9664               | 0.9916        |
+|                | SEResNeXt50       | 0.9833              | 0.9658               | 0.9913        |
+|                | **InceptionV3**   | **0.9867**          | **0.9727**           | **0.9928**    |
+|                | MobileNetV2       | 0.7445              | 0.6346               | 0.7682        |
+| **LinkNet**    | ResNet50          | 0.9826              | 0.9644               | 0.9907        |
+|                | SEResNeXt50       | 0.9826              | 0.9635               | 0.9905        |
+|                | **InceptionV3**   | **0.9839**          | **0.9671**           | **0.9914**    |
+|                | MobileNetV2       | 0.7472              | 0.6583               | 0.7928        |
+| **FPN**        | **ResNet50**      | **0.9840**          | **0.9683**           | **0.9917**    |
+|                | SEResNeXt50       | 0.9825              | 0.9653               | 0.9909        |
+|                | InceptionV3       | 0.9838              | 0.9656               | 0.9916        |
+|                | MobileNetV2       | 0.7474              | 0.7050               | 0.8037        |
+| **PSPNet**     | ResNet50          | 0.9835              | 0.9658               | 0.9912        |
+|                | SEResNeXt50       | 0.9828              | 0.9644               | 0.9909        |
+|                | **InceptionV3**   | **0.9840**          | **0.9668**           | **0.9915**    |
+|                | MobileNetV2       | 0.7916              | 0.7439               | 0.8569        |
 
-| Backbone         | binary_accuracy | dice_coef | iou_score |
-|------------------|-----------------|-----------|-----------|
-| Mobilenetv2      | 0.6167          | 0.4094    | 0.7271    |
-| seresnext50      | 0.9967          | 0.9925    | 0.9981    |
-| inceptionresnetv2 | 0.998         | 0.9946    | 0.9985    |
-| efficientnetb2   | 0.9905          | 0.9794    | 0.995     |
-| vgg16            | 0.989           | 0.969     | 0.9907    |
-
-#### FPN
-
-| Backbone         | binary_accuracy | dice_coef | iou_score |
-|------------------|-----------------|-----------|-----------|
-| Mobilenetv2      | 0.6587          | 0.4794    | 0.7374    |
-| **seresnext50**  | 0.998           | 0.9946    | 0.9985    |
-| inceptionresnetv2 | 0.9913         | 0.9818    | 0.9955    |
-| efficientnetb2   | 0.9920          | 0.9826    | 0.9957    |
-| vgg16            | 0.9911          | 0.972     | 0.9917    |
 
 
 ### Classification Models Experiment Results and graphs:
 
 
-| Model             | Val Loss | Val Acc. | Test Loss | Test Acc. |
-|-------------------|----------|----------|-----------|-----------|
-| **CoAtNet0**      | **0.159** | **95.8%** | **0.144** | **95.49%** |
-| Xception          | 0.182     | 95.63%   | 0.220     | 93.80%    |
-| ResNet50          | 0.182     | 93.11%   | 0.220     | 92.64%    |
-| InceptionResNet50 | 0.193     | 94.81%   | 0.197     | 93.87%    |
+# Performance Comparison on Validation and Test Sets
+
+| **Model**           | **Val Loss** | **Val Acc.**    | **Test Loss** | **Test Acc.**    |
+|----------------------|--------------|-----------------|---------------|------------------|
+| **CoAtNet0**         | **0.159**    | **95.80%**      | **0.144**     | **95.49%**       |
+| Xception            | 0.182        | 95.63%          | 0.220         | 93.80%           |
+| ResNet50            | 0.182        | 93.11%          | 0.220         | 92.64%           |
+| InceptionResNet50   | 0.193        | 94.81%          | 0.197         | 93.87%           |
+| ViT                 | 0.165        | 95.78%          | 0.178         | 95.27%           |
+
 
 ### Grad-CAM Visualizations
 <p align="center">
